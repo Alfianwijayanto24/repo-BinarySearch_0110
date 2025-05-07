@@ -1,16 +1,53 @@
-void display()
+void binarySearch()
 {
-    cout << "\n==============================\n";
-    cout << "     Elemen Array Setelah Diurutkan (Asc)  \n";
-    cout << "==================================\n";
-    for (int j = 0; j < nPanjang; j++)
+    char ulang;
+    do
+
     {
 
-    cout << element[j];
-    if (j < nPanjang - 1)
+    cout << "\n======================\n";
+    cout << "             Pencarian Binary Search \n";
+    cout << "============================\n";
+    cout << "Masukkan elemen yang ingin dicari: ";
+    cin >> x;
+
+    int low = 0;
+    int high = nPanjang - 1;
+
+    do
     {
-        cout << "-->";
+
+    int mid = (low + high) / 2; 
+    if (element [mid]== x)
+    {
+        cout << "\n [j] Elemen " << x << " ditemukan pada indeks" << mid << ".\n";
+        return;
+
     }
+    if (x < element [mid])
+    {
+    high = mid - 1;
     }
-    cout << endl;
+    
+    if (x > element [mid])
+    {
+        low = mid + 1;
+    }
+
+    } while (low <= high);
+    if (low > high)
+    {
+    cout <<"\n[x] Elemen"   << x << "tidak ditemukan dalan array.\n";
+    }
+    cout << "\nIngin mencari lagi? (y/n): ";
+    cin >> ulang;
+
+    } while (ulang =='y' || ulang =='Y');
 }
+ int main()
+ {
+    input();
+    bubbleSertArray();
+    display(); 
+    binarySearch();
+ }
