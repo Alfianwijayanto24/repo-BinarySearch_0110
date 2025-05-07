@@ -1,26 +1,20 @@
-#include <iostream>
-using namespace std;
-
-int element[10];
-int nPanjang;
-int x;
-
-void input()
+oid bubbleSertArray()
 {
-
-while (true)
-{
-
-   cout << "Masukkan banyaknya elemen pada array (maksimal 10): ";
-   cin >> nPanjang;
-    if (nPanjang <= 10)
+    int pass = 1;
+    do
     {
 
-        break;
-    }
-    else
+     for (int j = 0; j <= nPanjang - 1 - pass; j++)
     {
-        cout<<"\n[!] Jumlan elemen tidak boleh lebih dari 10. 51lakan coba lagi.\n";
 
+    if (element[j] > element[j + 1])
+        {
+
+        int temp = element [j];
+        element [j] = element[j + 1];
+        element[j + 1] = temp;
+        }
     }
+        pass++;
+    }while (pass <= nPanjang - 1);
 }
