@@ -2,106 +2,134 @@
 using namespace std;
 
 int element[10];
-int nPanjnag;
+int nPanjang;
 int x;
+
 void input()
 {
-    while (true)
+
+while (true)
+{
+
+   cout << "Masukkan banyaknya elemen pada array (maksimal 10): ";
+   cin >> nPanjang;
+    if (nPanjang <= 10)
     {
-        cout << "Masukan banyaknya elemen array (maksimal 10): ";
-        cin >> nPanjnag;
-        if (nPanjnag <= 10)
-        {
-            break;
-        }
-        else
-        {
-            cout << "\n[!] Jumlah elemen tidak boleh lebih dari 10. Silahkan coba lagi.\n";
-        }
+
+        break;
+    }
+    else
+    {
+        cout<<"\n[!] Jumlan elemen tidak boleh lebih dari 10. 51lakan coba lagi.\n";
 
     }
-    cout << "\n======================\n";
-    cout << "     Masukan Elemen Array       \n";
-    cout << "==============================\n";
-    for (int i = 0; i < nPanjnag; i++)
+}
+
+
+
+
+
+cout <<"\n========================\n";
+cout <<" Masukkan Elemen Array    \n";
+cout <<"==========================\n";
+
+
+for (int i = 0; i < nPanjang;  i++)
     {
-        cout << "Data ke-"<< (i + 1)<< "=";
-        cin >> element[i];
+
+    cout << "Data ke-" << (i + 1)<< " = ";
+    cin >> element[i];
+
     }
 }
-void bubbleSortArray()
+void bubbleSertArray()
 {
     int pass = 1;
     do
     {
-        for (int j =0; j <= nPanjnag - 1 - pass; j++)
+
+     for (int j = 0; j <= nPanjang - 1 - pass; j++)
+    {
+
+    if (element[j] > element[j + 1])
         {
-            if (element[j] > element[j + 1])
-            {
-                int temp = element[j];
-                element[j] = element[j + 1];
-                element[j + 1] = temp;
-            }
+
+        int temp = element [j];
+        element [j] = element[j + 1];
+        element[j + 1] = temp;
         }
+    }
         pass++;
-    }while (pass <= nPanjnag - 1);
+    }while (pass <= nPanjang - 1);
 }
 
 void display()
 {
-    cout << "\n========================\n";
-    cout << "    Elemen Array Setelah Diurutkan (Asc)  \n";
-    cout << "==========================\n";
-    for (int j = 0; j < nPanjnag; j++)
+    cout << "\n==============================\n";
+    cout << "     Elemen Array Setelah Diurutkan (Asc)  \n";
+    cout << "==================================\n";
+    for (int j = 0; j < nPanjang; j++)
     {
-        cout << " --> ";
+
+    cout << element[j];
+    if (j < nPanjang - 1)
+    {
+        cout << "-->";
     }
-}
+    }
     cout << endl;
-{
- void binarySearch()
 }
+
+void binarySearch()
+{
     char ulang;
     do
+
     {
-        cout << "\n================================\n";
-        cout <<"               Pencarian Binary Search \n";
-        cout << "=================================\n";
-        cout << "Masukan elemen yang ingin dicari: ";
-        cin >> x;
 
-        int low = 0;
-        int high = nPanjnag - 1;
+    cout << "\n======================\n";
+    cout << "             Pencarian Binary Search \n";
+    cout << "============================\n";
+    cout << "Masukkan elemen yang ingin dicari: ";
+    cin >> x;
 
-        do
-        {
-            int mid = (low + high) / 2;
-            if (element[mid] == x)
-            {
-                cout << "\n[b] Elemen" << x << "ditemukan pada indeks" << mid << ".\n";
-                return;
-            
-            }
-            if (x < element[mid])
-            {
-                low = mid + 1;
-            }
-        } while (low <= high)
-        if (low <== high)
-        {
-            cout << "\n[s] Elemen" << x << "tidak ditemukan dalam array.\n";
-         }
-         cout << "\nIngin mencuri lagi? (y/n):";
-         cin >> ulang;
-          
+    int low = 0;
+    int high = nPanjang - 1;
 
-    } while (ulang == 'y' || ulang == 'y');
+    do
     {
-        int main()
-        {
-            input();
-            bubbleSortArray();
-            display();
-            binarySearch();
-        }
+
+    int mid = (low + high) / 2; 
+    if (element [mid]== x)
+    {
+        cout << "\n [j] Elemen " << x << " ditemukan pada indeks" << mid << ".\n";
+        return;
+
     }
+    if (x < element [mid])
+    {
+    high = mid - 1;
+    }
+    
+    if (x > element [mid])
+    {
+        low = mid + 1;
+    }
+
+    } while (low <= high);
+    if (low > high)
+    {
+    cout <<"\n[x] Elemen"   << x << "tidak ditemukan dalan array.\n";
+    }
+    cout << "\nIngin mencari lagi? (y/n): ";
+    cin >> ulang;
+
+    } while (ulang =='y' || ulang =='Y');
+}
+ int main()
+ {
+    input();
+    bubbleSertArray();
+    display(); 
+    binarySearch();
+ }
