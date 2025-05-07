@@ -1,20 +1,16 @@
-oid bubbleSertArray()
+void display()
 {
-    int pass = 1;
-    do
+    cout << "\n==============================\n";
+    cout << "     Elemen Array Setelah Diurutkan (Asc)  \n";
+    cout << "==================================\n";
+    for (int j = 0; j < nPanjang; j++)
     {
 
-     for (int j = 0; j <= nPanjang - 1 - pass; j++)
+    cout << element[j];
+    if (j < nPanjang - 1)
     {
-
-    if (element[j] > element[j + 1])
-        {
-
-        int temp = element [j];
-        element [j] = element[j + 1];
-        element[j + 1] = temp;
-        }
+        cout << "-->";
     }
-        pass++;
-    }while (pass <= nPanjang - 1);
+    }
+    cout << endl;
 }
